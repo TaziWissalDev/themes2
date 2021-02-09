@@ -128,13 +128,13 @@ class Theme extends Collection
      */
     protected function symlinkPublicDirectory()
     {
-        if (! file_exists(public_path('themes/'.$this->getCurrent()))) {
+        if (! file_exists(public_path('themes'))) {
             if (! file_exists(public_path('themes'))) {
                 app()->make('files')->makeDirectory(public_path('themes'));
             }
 
             app()->make('files')->link(
-                $this->path('public'), public_path('themes/'.$this->getCurrent())
+                $this->path('public'), public_path('themes')
             );
         }
     }
